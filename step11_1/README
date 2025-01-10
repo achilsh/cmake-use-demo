@@ -1,0 +1,10 @@
+```
+1. 主要功能：
+ 定义一个动态库源码，build 动态库，安装动态库， 导出对应的 *.cmake 文件。
+ 在另外一个项目中使用导出的动态库和配置。
+ 
+ 目录： use_lib 源码实现功能：
+     通过 list(APPEND CMAKE_PREFIX_PATH "第1点安装*.cmake 文件目录")
+     find_package(mylib REQUIRED) 其中 mylib 是 *.cmake 中的 *代表的文件名.
+     因为生成的  *.cmake  是 *Config.cmake； 不是 find_package()默认查找的路径。find_package()默认查找的是 Find*.cmake.
+```

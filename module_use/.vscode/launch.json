@@ -1,0 +1,14 @@
+  {
+    "configurations": [
+
+
+        {
+            "program":"${workspaceFolder}/build/${fileBasenameNoExtension}",
+            "type": "cmake",
+            "request": "g++",
+            "name": "Debug portfile(s)",
+            "cmakeDebugType": "external",
+            "pipeName": "/tmp/vcpkg_ext_portfile_dbg",
+        }
+    ]
+}
