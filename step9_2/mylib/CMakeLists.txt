@@ -24,7 +24,7 @@ if (USE_LIB)
     # PRIVATE 标明 只有myLib 能使用 sqrtlib中的符号，其他连接到mylib的目标是不能
     # 使用 sqrlib中的符号；禁止 sqrtlib的符号 在链接传递。
     target_link_libraries(mylib PRIVATE sqrtlib)
-    # INTERFACE的作用：interface是一种链接属性。当一个目标（可以是库或者可执行文件）以interface方式链接另一个库时，这个目标自身不会链接被链接库的实现部分，但会将该库的接口信息传递给依赖这个目标的其他目标。
+    # INTERFACE的作用：interface是一种链接属性。当一个目标（可以是库或者可执行文件）以interface方式链接另一个库时，这个目标自身不会链接到被链接库的实现部分，但该被链接库的接口信息传递给依赖这个目标的其他目标。
 endif()
 
 set(installable_libs mylib)
