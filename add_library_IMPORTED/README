@@ -1,0 +1,5 @@
+```
+    1. 使用 add_library() with IMPORTED 属性来引用非 cmake 构建生成的 库和头文件。
+    2. 使用场景：
+        需要临时接入一个外部已有的库来验证某个功能，用add_library() IMPORTED可以简单直接地将库添加进来，不用过多考虑库的安装和CMake标准查找流程等情况。
+```
