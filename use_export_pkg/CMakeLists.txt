@@ -5,7 +5,7 @@ project(test_pkg VERSION 1.0)
 # /home/user/works/cmake_demo/install_export_pkg/install/lib/cmake/myLib
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
-set(CMAKE_MODULE_PATH "/home/user/works/cmake_demo/install_export_pkg/install/")
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/../install_export_pkg/install/")
 
 ## 查找包；调用 find_package() 
 find_package(myLib REQUIRED)

@@ -1,3 +1,6 @@
+# # 本层中的 CMakeLists.txt 可以使用上一层 CMakeLists.txt中定义的变量
+
+
 
 add_library(mylib SHARED  myFunc.cc)
 ## interface 说明任何依赖 Mylib或者链接myLib的目标都会包含该目录，除了mylib自身除外。
@@ -34,6 +37,9 @@ if (USE_LIB)
         POSITION_INDEPENDENT_CODE ${BUILD_SHARED_LIBS}
     )
 
+    
+    
+    
     # 设置 sqrtlib库 依赖头文件 查找路径，用于查找 中间生成的头文件 table.h 
     target_include_directories(sqrtlib PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 

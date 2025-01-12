@@ -1,3 +1,5 @@
+# # 本层中的 CMakeLists.txt 可以使用上一层 CMakeLists.txt中定义的变量
+
 
 ## 在当前目录下搜素 特定类型的源文件，将找到文件名存放到变量中;GLOB_RECURSE 表示递归查找
 file(GLOB srcs "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/*.cc")
@@ -19,7 +21,7 @@ set_target_properties(myLib PROPERTIES INSTALL_RPATH "../lib")
 file(GLOB allFile "*.h" "*.cc")
 message(STATUS "...>>>${allFile}")
 
-# # 从allFile删除某个元素
+# # 从allFile删除某个元素；内部元素指定必须要 绝对路径。
 list(REMOVE_ITEM allFile "${CMAKE_CURRENT_SOURCE_DIR}/g.h")
 message(STATUS "del: ${allFile} || OK")
 

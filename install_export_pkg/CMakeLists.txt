@@ -27,6 +27,14 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 
-# 导出库，通过 FILE 设置 导出名为 FindMyLib ; 安装目录是：   ${CMAKE_INSTALL_PREFIX}
-# install(EXPORT FindMyLib FILE FindmyLib.cmake DESTINATION lib/cmake/myLib/)
-     
+# # 设置变量值， 将 x1, x2 两个设置到xx,
+set(xx x1 x2)
+message(STATUS ">>>: ${xx}") # #  x1;x2
+
+# # 将 x1， x2 变量的值 设置到 xx
+set(xx ${x1} ${x2})
+message(STATUS "${xx}")
+
+# # 将x1, x2 设置到变量 ret；其中 如果是变量名，直接将变量名添加到 ret 中。
+list(APPEND ret x1 x2)
+message(STATUS ${ret}) # # 输出 x1x2

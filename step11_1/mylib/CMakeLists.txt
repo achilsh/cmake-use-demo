@@ -1,3 +1,6 @@
+# # 本层中的 CMakeLists.txt 可以使用上一层 CMakeLists.txt中定义的变量
+
+
 
 add_library(mylib SHARED  myFunc.cc)
 

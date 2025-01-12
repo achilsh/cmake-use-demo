@@ -1,3 +1,5 @@
+# # 本层中的 CMakeLists.txt 可以使用上一层 CMakeLists.txt中定义的变量
+
 
 add_library(mylib SHARED myFunc.cc)
 ## interface 说明任何依赖 Mylib或者链接myLib的目标都会包含该目录，除了mylib自身除外。
@@ -26,6 +28,5 @@ if (TARGET sqrtlib)
 endif()
 
 # 把生成的库 安装到 lib目录下
-install(TARGETS ${installable_libs} DESTINATION lib)
-# 将头文件安装 include 目录下
+install(TARGETS ${installable_libs} DESTINATION lib) # 将头文件安装 include 目录下
 install(FILES myFunc.h DESTINATION include)
