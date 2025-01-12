@@ -13,7 +13,9 @@ endif()
 set(CMAKE_CXX_FLAGS "-w") # 忽略警告信息
 set(CMAKE_CXX_FLAGS_DEBUG "-g -ggdb ${CMAKE_CXX_FLAGS}") # 设置DEBUG模式的编译选项
 
+# #嵌套调用 其他cmake
 add_subdirectory(myLib)
+add_subdirectory(myLibEx EXCLUDE_FROM_ALL) # # EXCLUDE_FROM_ALL 排除编译 myLibEx 子目录； 如果需要编译该排除的目录，需要手动 手动 make myLibEx 
 
 add_executable(${PROJECT_NAME} main.cc)
 target_link_libraries(${PROJECT_NAME} myLib)

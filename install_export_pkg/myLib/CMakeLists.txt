@@ -1,12 +1,27 @@
-file(GLOB srcs "*.cpp" "*.cc")
+
+## 在当前目录下搜素 特定类型的源文件，将找到文件名存放到变量中;GLOB_RECURSE 表示递归查找
+file(GLOB srcs "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/*.cc")
+message(STATUS ">> find sources: ${srcs}")
+
+
 add_library(myLib SHARED ${srcs})
 
-## 设置动态库依赖 头文件的路径
+## 设置动态库依赖 头文件的路径; 指定编译目标时使用的 include 的路径； include_directories() ,
+## 这些 inlude的路径 存放到  INCLUDE_DIRECTORIES 变量中.
 target_include_directories(myLib PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
     $<INSTALL_INTERFACE:include>)
 
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+message(STATUS "--> ${INCLUDE_DIRECTORIES}")
 set_target_properties(myLib PROPERTIES INSTALL_RPATH "../lib")
+
+file(GLOB allFile "*.h" "*.cc")
+message(STATUS "...>>>${allFile}")
+
+# # 从allFile删除某个元素
+list(REMOVE_ITEM allFile "${CMAKE_CURRENT_SOURCE_DIR}/g.h")
+message(STATUS "del: ${allFile} || OK")
 
 # # 安装 myLib库 并导出 ，这样就会生成 *.cmake 文件； 将 myLib安装到导出目标  FindMyLib 上。
 install(TARGETS myLib EXPORT FindMyLib
