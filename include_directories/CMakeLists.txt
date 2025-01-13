@@ -1,10 +1,13 @@
 cmake_minimum_required(VERSION 3.16)
 project(display VERSION 1.1)
 
-## 把包含目录添加到 构建中
+## 包含头文件搜索路径；是一个全局命令，
+## 使用这个命令后，它会为后续所有的目标（包括可执行文件、静态库、动态库等）添加头文件搜索路径。
+## 这种全局设置可能会影响到项目中的多个构建目标，使得它们都能够在指定的路径下查找头文件。
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
-# 增加linker查找库路径
+# 增加linker查找库文件路径； 一个全局命令，用于指定链接器查找库文件的目录路径。
+## 一旦使用了这个命令，在它之后添加的所有目标（包括可执行文件和库）在链接过程中，链接器都会在指定的目录中查找所需的库文件。
 link_directories(${PROJECT_SOURCE_DIR}/lib)
 
 add_executable(display src/demo.cc src/main.cc)
