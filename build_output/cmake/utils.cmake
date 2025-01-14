@@ -1,0 +1,1 @@
+message(STATUS "sub cmake path: " ${CMAKE_CURRENT_LIST_DIR} "; " ${CMAKE_CURRENT_LIST_DIR})
