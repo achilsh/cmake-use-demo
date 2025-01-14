@@ -1,0 +1,48 @@
+// 如果在CMakeLists.txt中设置 test_enable  ON/TRUE, option(test_enable "" TRUE)
+// 或者 set(test_enable xyz; 下面结果替换为一个宏： #define test_enalbe 123
+// 不依赖于CMakeLists.txt中设置 test_enable 具体值。
+#cmakedefine test_enable 123
+
+// 如果 在CMakeLists.txt中设置 X_API为 ON/TRUE; 比如 option(X_API "" ON) 或者
+// set(X_API "asdfa") 则 上面结果被替换为： #define X_API; 否则不会定义宏。
+#cmakedefine X_API
+
+///// ------------ 上面生成 要不生成宏定义，要不不生成。----------------- /
+///---------------------------------------------------------------------/
+////
+///--------------------------------------------------------------------/
+
+// 如果在CMakeLists.txt 中设置 test_tn值，比如： option(test_tn "" ON)或者
+// set(test_tn "fadfa")，那么 该句代码转化为： #define test_tn 1 否则 #define
+// test_tn 0 ；只会把 test_tn 定义为 0 或者 1
+#cmakedefine01 test_tn
+
+// 如果在CMakeLists.txt 中设置 test_t1值，比如： option(test_t1 "" ON)或者
+// set(test_t1 "fadfa")，那么 该句代码转化为： #define test_t1 1 否则 #define
+// test_t1 0 ；只会把 test_t1 定义为 0 或者 1
+#cmakedefine01 test_t1
+
+// 如果在CMakeLists.txt 中设置 test_t1值，比如： option(test_t2 "" ON)或者
+// set(test_t2 "fadfa")，那么 该句代码转化为： #define test_t2 1 否则 #define
+// test_t2 0 ；只会把 test_t2 定义为 0 或者 1
+#cmakedefine01 test_t2
+
+// 如果在CMakeLists.txt 中设置 test_t1值，比如： option(test_t3 "" ON)或者
+// set(test_t3 "fadfa")，那么 该句代码转化为： #define test_t3 1 否则 #define
+// test_t3 0 ；只会把 test_t3 定义为 0 或者 1
+#cmakedefine01 test_t3
+
+///----------------------上面生成宏定义 为0 ； 要不生成宏定义为1 -------------/
+////-----------------------------------------------------------------------/
+////-----------------------------------------------------------------------/
+////-----------------------------------------------------------------------/
+
+/// 如果在CMakeLists.txt中设置了 demo_str的一个具体值，比如 set(demo_str 111);
+/// 那么 此处代码会
+// 会转化为 #define demo_str 111
+#cmakedefine demo_str @demo_str@
+
+/// ------------------------上面生成宏 定义， 要不就会不生成--------/
+/// -------------------------------------------------------------/
+/// -------------------------------------------------------------/
+/// -------------------------------------------------------------/

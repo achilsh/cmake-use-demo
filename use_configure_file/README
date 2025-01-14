@@ -1,0 +1,9 @@
+```
+    1. 用于自定义编译选项
+    2. 使用 configure_file()根据模版生成代码源文件
+    3. 具体步骤：
+        3.1 cmake -D宏编译选项=OFF .. 或者 cmake -D宏编译选项=ON .. 来设置宏编译选项值。
+        3.2 在CMakeLists.txt中通过 option(宏编译选项 "help descripton" 默认值ON/OFF) 给-D红编译选项设置默认值 
+        3.3 在*.h.in 文件中定义宏编译选项的模板， 比如： #cmakedefine 宏编译选项。如果option()中设置了ON,就会在cmake 后生成 头文件 *.h;里面就会有 #define 宏编译选项
+        3.4 在源码中使用宏编译选项来控制源码流程。
+```
