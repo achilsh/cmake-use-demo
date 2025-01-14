@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(Step2 VERSION 1.1)
 
+## 设置
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
